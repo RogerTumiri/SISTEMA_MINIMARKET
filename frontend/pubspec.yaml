@@ -1,0 +1,79 @@
+name: minimarket_flutter
+description: MiniMarket Pro — Sistema Inteligente de Gestión de Inventarios
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^3.1.0
+  riverpod_annotation: ^4.0.0
+
+  # Navigation
+  go_router: ^17.1.0
+
+  # HTTP & API
+  dio: ^5.4.3+1
+  dio_cache_interceptor: ^4.0.6
+
+  # Secure storage
+  flutter_secure_storage: ^10.0.0
+
+  # UI Components
+  google_fonts: ^8.0.2
+  flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  fl_chart: ^1.2.0
+  data_table_2: ^2.5.12
+  
+  # Barcode scanner
+  mobile_scanner: ^7.2.0
+
+  # PDF & Documents
+  pdf: ^3.11.1
+  printing: ^5.13.1
+
+  # Utilities
+  intl: ^0.20.2
+  uuid: ^4.4.0
+  shared_preferences: ^2.2.3
+  connectivity_plus: ^7.0.0
+  permission_handler: ^12.0.1
+  image_picker: ^1.1.2
+  
+  # WebSocket
+  web_socket_channel: ^3.0.1
+  socket_io_client: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.10
+  riverpod_generator: ^4.0.0+1
+  custom_lint: ^0.8.1
+  riverpod_lint: ^3.1.0
+
+flutter:
+  uses-material-design: true
+#  assets:
+#    - assets/images/
+#    - assets/icons/
+#    - assets/fonts/
+  
+#  fonts:
+#    - family: Inter
+#      fonts:
+#        - asset: assets/fonts/Inter-Regular.ttf
+#        - asset: assets/fonts/Inter-Medium.ttf
+#          weight: 500
+#        - asset: assets/fonts/Inter-SemiBold.ttf
+#          weight: 600
+#        - asset: assets/fonts/Inter-Bold.ttf
+#          weight: 700
