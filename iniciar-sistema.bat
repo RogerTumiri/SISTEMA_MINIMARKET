@@ -91,8 +91,7 @@ REM 7) Backend Node.js (puerto 3001)
 REM ─────────────────────────────────────────────────────────────
 echo.
 echo [3/3] Iniciando Backend API (puerto 3001)...
-start "MiniMarket - Backend API" cmd /k "cd /d "%SCRIPT_DIR%backend" && npm run dev"
-timeout /t 5 /nobreak >nul
+start "MiniMarket - Backend API" /D "%SCRIPT_DIR%backend" cmd /k "npm run dev"
 echo   [OK] Backend iniciando...
 
 echo.
