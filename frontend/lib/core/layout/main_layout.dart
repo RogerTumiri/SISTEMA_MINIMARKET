@@ -12,7 +12,7 @@ class MainLayout extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authProvider);
-    final user = authState is AuthAuthenticated ? (authState as AuthAuthenticated).user : null;
+    final user = authState is AuthAuthenticated ? authState.user : null;
     final isAdmin = user?.isAdmin ?? false;
     final location = GoRouterState.of(context).matchedLocation;
 
@@ -45,13 +45,15 @@ class MainLayout extends ConsumerWidget {
               padding: const EdgeInsets.only(right: 16),
               child: PopupMenuButton(
                 child: Row(children: [
-                  Container(
-                    width: 32, height: 32,
+                  const DecoratedBox(
                     decoration: BoxDecoration(
                       color: AppColors.primary50,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.person, color: AppColors.primary, size: 18),
+                    child: SizedBox(
+                      width: 32, height: 32,
+                      child: Icon(Icons.person, color: AppColors.primary, size: 18),
+                    ),
                   ),
                   const SizedBox(width: 8),
                   Text(user.username, style: const TextStyle(color: AppColors.textPrimary, fontSize: 14, fontWeight: FontWeight.w500)),
@@ -125,17 +127,17 @@ class _Sidebar extends ConsumerWidget {
                 color: AppColors.primary,
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
-                  BoxShadow(color: AppColors.primary.withOpacity(0.35), blurRadius: 8, offset: const Offset(0, 4)),
+                  BoxShadow(color: AppColors.primary.withValues(alpha: 0.35), blurRadius: 8, offset: const Offset(0, 4)),
                 ],
               ),
               child: const Center(child: Text('🏪', style: TextStyle(fontSize: 20))),
             ),
             const SizedBox(width: 12),
-            Expanded(
+            const Expanded(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const Text('MiniMarket',
+                Text('MiniMarket',
                   style: TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.w700, fontSize: 15)),
-                const Text('Pro',
+                Text('Pro',
                   style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w700, fontSize: 15)),
               ]),
             ),

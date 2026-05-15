@@ -35,7 +35,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final authState = ref.watch(authProvider);
 
     ref.listen<AuthState>(authProvider, (_, next) {
-      if (next.isAuthenticated) context.go('/dashboard');
+      if (next.isAuthenticated && mounted) {
+        context.go('/dashboard');
+      }
     });
 
     return Scaffold(
@@ -59,7 +61,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(22),
                   boxShadow: [
-                    BoxShadow(color: Colors.black.withOpacity(0.18), blurRadius: 24, offset: const Offset(0, 10)),
+                    BoxShadow(color: Colors.black.withValues(alpha: 0.18), blurRadius: 24, offset: const Offset(0, 10)),
                   ],
                 ),
                 child: Center(
@@ -75,13 +77,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
               const SizedBox(height: 20),
               const Text(
-                'MiniMarket Pro',
+                'MiniMarket',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: Colors.white, letterSpacing: -0.5),
               ),
               const SizedBox(height: 6),
               Text(
                 'Gestión Inteligente de Inventarios',
-                style: TextStyle(fontSize: 14, color: Colors.white.withOpacity(0.75), fontWeight: FontWeight.w400),
+                style: TextStyle(fontSize: 14, color: Colors.white.withValues(alpha: 0.75), fontWeight: FontWeight.w400),
               ),
               const SizedBox(height: 36),
 
@@ -92,7 +94,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
-                    BoxShadow(color: Colors.black.withOpacity(0.14), blurRadius: 40, offset: const Offset(0, 16)),
+                    BoxShadow(color: Colors.black.withValues(alpha: 0.14), blurRadius: 40, offset: const Offset(0, 16)),
                   ],
                 ),
                 padding: const EdgeInsets.all(36),
@@ -120,16 +122,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           margin: const EdgeInsets.only(bottom: 20),
                           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                           decoration: BoxDecoration(
-                            color:        AppColors.error.withOpacity(0.08),
+                            color:        AppColors.error.withValues(alpha: 0.08),
                             borderRadius: BorderRadius.circular(12),
-                            border:       Border.all(color: AppColors.error.withOpacity(0.25)),
+                            border:       Border.all(color: AppColors.error.withValues(alpha: 0.25)),
                           ),
                           child: Row(children: [
                             const Icon(Icons.error_outline, color: AppColors.error, size: 18),
                             const SizedBox(width: 10),
                             Expanded(
                               child: Text(
-                                (authState as AuthError).message,
+                                authState.message,
                                 style: const TextStyle(color: AppColors.error, fontSize: 13),
                               ),
                             ),
@@ -170,7 +172,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () => context.push('/forgot-password'),
+                          onPressed: () {
+                            // TODO: Implement forgot password
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Funcionalidad próximamente disponible')),
+                            );
+                          },
                           child: const Text('¿Olvidaste tu contraseña?'),
                         ),
                       ),
@@ -202,8 +209,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
               const SizedBox(height: 28),
               Text(
-                '© 2025 MiniMarket Pro · v1.0.0',
-                style: TextStyle(color: Colors.white.withOpacity(0.55), fontSize: 12),
+                '© 2026 MiniMarket · v1.0.0',
+                style: TextStyle(color: Colors.white.withValues(alpha: 0.55), fontSize: 12),
               ),
             ]),
           ),

@@ -204,12 +204,12 @@ class AppTheme {
 /// Helper: crea una sombra suave estilo neumórfico para tarjetas
 List<BoxShadow> get cardShadow => [
       BoxShadow(
-        color:  const Color(0xFF3B6FF0).withOpacity(0.06),
+        color:  const Color(0xFF3B6FF0).withValues(alpha: 0.06),
         blurRadius:  12,
         offset: const Offset(0, 4),
       ),
       BoxShadow(
-        color:  Colors.black.withOpacity(0.04),
+        color:  Colors.black.withValues(alpha: 0.04),
         blurRadius:  8,
         offset: const Offset(0, 2),
       ),

@@ -1,0 +1,34 @@
+# BACKEND (Node)
+backend/node_modules/
+backend/.env
+backend/*.txt
+backend/err.log
+backend/fix-admin.js
+backend/test-login.js
+backend/verify-hash.js
+backend/setup-db.js
+
+# FRONTEND (Flutter)
+frontend/.dart_tool/
+frontend/build/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.idea/
+
+# IA (Python)
+ia_service/venv/
+ia_service/__pycache__/
+ia_service/.env
+
+# GENERAL
+.env
+*.log
+
+# Archivos temporales de raiz
+*.txt
+!README.md
+!GUIA_SUBIR_REPOSITORIO.md
+
+# IDE
+.vscode/
+.idea/

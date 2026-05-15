@@ -1,4 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'usuario_model.dart';
 
 // Since we can't run build_runner, using a simple sealed class approach
