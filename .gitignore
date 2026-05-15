@@ -27,7 +27,6 @@ ia_service/.env
 # Archivos temporales de raiz
 *.txt
 !README.md
-!GUIA_SUBIR_REPOSITORIO.md
 
 # IDE
 .vscode/
