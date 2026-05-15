@@ -411,7 +411,7 @@ class _PosScreenState extends ConsumerState<PosScreen> {
           ]),
           const SizedBox(height: 12),
           DropdownButtonFormField<String>(
-            value: _metodoPago,
+            initialValue: _metodoPago,
             decoration: const InputDecoration(labelText: 'Método de pago'),
             items: const [
               DropdownMenuItem(value: 'EFECTIVO', child: Text('Efectivo')),
